@@ -12,3 +12,10 @@ RGBLIGHT_ENABLE = no        # Enable keyboard RGB underglow
 AUDIO_ENABLE = no           # Audio output
 DIP_SWITCH_ENABLE = yes
 RGB_MATRIX_ENABLE = yes
+REPEAT_KEY_ENABLE = yes
+UNICODE_ENABLE = yes
+LEADER_ENABLE = yes
+CAPS_WORD_ENABLE = yes
+COMMAND_ENABLE = no
+PERMISSIVE_HOLD = yes
+
