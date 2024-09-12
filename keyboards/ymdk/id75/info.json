@@ -24,7 +24,31 @@
         "cols": ["GP26", "GP27", "GP4", "GP5", "GP1", "GP23", "GP22", "GP21", "GP28", "GP3", "GP7", "GP12", "GP13", "GP14", "GP15"]
     },
     "rgb_matrix": {
-        "driver": "ws2812"
+        "animations": {
+            "breathing": true,
+            "band_spiral_val": true,
+            "cycle_all": true,
+            "cycle_left_right": true,
+            "cycle_up_down": true,
+            "rainbow_moving_chevron": true,
+            "cycle_out_in": true,
+            "cycle_out_in_dual": true,
+            "cycle_pinwheel": true,
+            "cycle_spiral": true,
+            "dual_beacon": true,
+            "rainbow_beacon": true,
+            "jellybean_raindrops": true,
+            "pixel_rain": true,
+            "typing_heatmap": true,
+            "digital_rain": true,
+            "solid_reactive_simple": true,
+            "solid_reactive_multiwide": true,
+            "solid_reactive_multinexus": true,
+            "splash": true,
+            "solid_splash": true
+        },
+        "driver": "ws2812",
+        "sleep": true
     },
     "ws2812": {
         "pin": "GP2",
