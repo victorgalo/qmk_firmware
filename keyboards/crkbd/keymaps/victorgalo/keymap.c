@@ -424,6 +424,8 @@ void send_spanish_accent(uint8_t letter) {
             unregister_code(KC_LALT);
             tap_code(vowel_letter_key_map[letter]);
         }
+        SEND_STRING("maaaa");
+
     } else if (operativeSystem == OS_LIN) {
         if (isCaps) {
             tap_code(KC_CAPS_LOCK);
@@ -432,16 +434,20 @@ void send_spanish_accent(uint8_t letter) {
             unregister_code(KC_RALT);
             tap_code(KC_CAPS);
         } else {
-            register_code(KC_LALT);
+            register_code(KC_RALT);
             tap_code(vowel_letter_key_map[letter]);
-            unregister_code(KC_LALT);
+            unregister_code(KC_RALT);
         }
+        SEND_STRING("liiiii");
+
     } else {
         decimal_unicode_in = isCaps ? spanish_accent_decimal_unicodes[letter][1] : spanish_accent_decimal_unicodes[letter][0];
         break_int_in_array(decimal_unicode_in, decimal_unicode_out);
         register_code(KC_LALT);
         tap_win_alt_code();
         unregister_code(KC_LALT);
+        SEND_STRING("wiiiii");
+
     }
 }
 
