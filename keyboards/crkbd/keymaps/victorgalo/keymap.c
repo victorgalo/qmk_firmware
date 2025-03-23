@@ -251,7 +251,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_NUM] = LAYOUT_split_3x6_3_ex2(
         //,-----------------------------------------------------.                      ,-----------------------------------------------------.
-             KC_TAB, KC_1,   KC_2, KC_3,  KC_4, KC_5,             KC_TRNS,    KC_TRNS,  KC_6, KC_P7, KC_8, KC_9, KC_0, KC_EQL,
+             KC_TAB, KC_1,   KC_2, KC_3,  KC_4, KC_5,             KC_TRNS,    KC_TRNS,  KC_6, KC_7, KC_8, KC_9, KC_0, KC_EQL,
         //|--------+--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------+--------|
             KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, QK_REDO, KC_TRNS,    KC_TRNS,  KC_MINS, KC_4, KC_5, KC_6, KC_ASTR,  KC_PLUS,
         //|--------+--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------+--------|
