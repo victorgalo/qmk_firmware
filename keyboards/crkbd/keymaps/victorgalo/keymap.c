@@ -215,7 +215,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_SWITCHER] = LAYOUT_split_3x6_3_ex2(
         //,------------------------------------------------------------------------.                           ,-----------------------------------------------------.
-            KC_TRNS,    TO(_BASE_WIN),    TO(_BASE_LIN),    TO(_BASE_WMAC),    TO(_GAMING),    KC_TRNS,    KC_TRNS,    KC_TRNS,      KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,   KC_TRNS,  KC_TRNS,
+            KC_TRNS,    TO(_BASE_WIN),    TO(_BASE_LIN),    TO(_BASE_MAC),    TO(_GAMING),    KC_TRNS,    KC_TRNS,    KC_TRNS,      KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,   KC_TRNS,  KC_TRNS,
         //|--------+--------+--------+--------+--------+--------|                                                           |--------+--------+--------+--------+--------+--------|
             KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,        KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,      KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS,
         //|--------+--------+--------+--------+--------+--------|                                                           |--------+--------+--------+--------+--------+--------|
