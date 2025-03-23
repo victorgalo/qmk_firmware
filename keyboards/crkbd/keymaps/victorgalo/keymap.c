@@ -251,11 +251,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_NUM] = LAYOUT_split_3x6_3_ex2(
         //,-----------------------------------------------------.                      ,-----------------------------------------------------.
-             KC_TAB, KC_1,   KC_2, KC_3,  KC_4, KC_5,             KC_TRNS,    KC_TRNS,  KC_6, KC_P7, KC_P8, KC_P9, KC_P0, KC_EQL,
+             KC_TAB, KC_1,   KC_2, KC_3,  KC_4, KC_5,             KC_TRNS,    KC_TRNS,  KC_6, KC_P7, KC_8, KC_9, KC_0, KC_EQL,
         //|--------+--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------+--------|
-            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, QK_REDO, KC_TRNS,    KC_TRNS,  KC_MINS,  KC_P4, KC_P5, KC_P6, KC_ASTR,  KC_PLUS,
+            KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, QK_REDO, KC_TRNS,    KC_TRNS,  KC_MINS, KC_4, KC_5, KC_6, KC_ASTR,  KC_PLUS,
         //|--------+--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------+--------|
-            QK_REDO, QK_UNDO, QK_CUT, QK_COPY, QK_PASTE, KC_TRNS,                       KC_UNDS, KC_P1, KC_P2, KC_P3, KC_SLSH, KC_MINS,
+            QK_REDO, QK_UNDO, QK_CUT, QK_COPY, QK_PASTE, KC_TRNS,                       KC_UNDS, KC_1, KC_2, KC_3, KC_SLSH, KC_MINS,
         //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                             KC_TRNS,   KC_TRNS,  KC_TRNS,     KC_COMM, KC_P0, KC_DOT
                                             //`--------------------------'  `--------------------------'
