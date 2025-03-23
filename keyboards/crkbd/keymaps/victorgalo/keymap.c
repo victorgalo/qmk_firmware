@@ -179,9 +179,9 @@ void led_set_user(uint8_t usb_led) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE_WIN] = LAYOUT_split_3x6_3_ex2(
         //,-----------------------------------------------------.                                   ,-----------------------------------------------------.
-            KC_TAB,     KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    MO(_SWITCHER),  MO(_MEDIA),      KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSPC,
+            KC_TAB,     KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_LBRC,  KC_RBRC,      KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSPC,
         //|--------+--------+--------+--------+--------+--------|                                   |--------+--------+--------+--------+--------+--------|
-            QK_LEAD,    SFT_A,    GUI_S,    CTL_D,    ALT_F,    KC_G,    KC_NO,    KC_NO,    KC_H,   ALT_J,    CTL_K,    GUI_L, SFT_SCLN, KC_QUOT,
+            QK_LEAD,    SFT_A,    GUI_S,    CTL_D,    ALT_F,    KC_G,    KC_LCBR,    KC_RCBR,    KC_H,   ALT_J,    CTL_K,    GUI_L, SFT_SCLN, KC_QUOT,
         //|--------+--------+--------+--------+--------+--------|                                   |--------+--------+--------+--------+--------+--------|
             SC_LSPO,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                    KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  SC_RSPC,
         //|--------+--------+--------+--------+--------+--------+--------|                |--------+--------+--------+--------+--------+--------+--------|
@@ -191,9 +191,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_BASE_LIN] = LAYOUT_split_3x6_3_ex2(
         //,-----------------------------------------------------.                                   ,-----------------------------------------------------.
-            KC_TAB,     KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    MO(_SWITCHER),  MO(_MEDIA),      KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSPC,
+            KC_TAB,     KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_LBRC,  KC_RBRC,      KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSPC,
         //|--------+--------+--------+--------+--------+--------|                                   |--------+--------+--------+--------+--------+--------|
-            QK_LEAD,    SFT_A,    GUI_S,    CTL_D,    ALT_F,    KC_G,    KC_NO,    KC_NO,    KC_H,   ALT_J,    CTL_K,    GUI_L, SFT_SCLN, KC_QUOT,
+            QK_LEAD,    SFT_A,    GUI_S,    CTL_D,    ALT_F,    KC_G,    KC_LCBR,    KC_RCBR,    KC_H,   ALT_J,    CTL_K,    GUI_L, SFT_SCLN, KC_QUOT,
         //|--------+--------+--------+--------+--------+--------|                                   |--------+--------+--------+--------+--------+--------|
             SC_LSPO,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                    KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  SC_RSPC,
         //|--------+--------+--------+--------+--------+--------+--------|                |--------+--------+--------+--------+--------+--------+--------|
@@ -203,9 +203,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_BASE_MAC] = LAYOUT_split_3x6_3_ex2(
         //,-----------------------------------------------------.                                   ,-----------------------------------------------------.
-            KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    MO(_SWITCHER),  MO(_MEDIA),      KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSPC,
+            KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_LBRC,  KC_RBRC,      KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSPC,
         //|--------+--------+--------+--------+--------+--------|                                   |--------+--------+--------+--------+--------+--------|
-            QK_LEAD,    SFT_A,    CTL_S,    GUI_D,    ALT_F,    KC_G,    KC_NO,    KC_NO,    KC_H,   ALT_J,    GUI_K,    CTL_L, SFT_SCLN, KC_QUOT,
+            QK_LEAD,    SFT_A,    CTL_S,    GUI_D,    ALT_F,    KC_G,    KC_LCBR,    KC_RCBR,    KC_H,   ALT_J,    GUI_K,    CTL_L, SFT_SCLN, KC_QUOT,
         //|--------+--------+--------+--------+--------+--------|                                   |--------+--------+--------+--------+--------+--------|
             SC_LSPO,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                    KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  SC_RSPC,
         //|--------+--------+--------+--------+--------+--------+--------|                |--------+--------+--------+--------+--------+--------+--------|
@@ -263,9 +263,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_FUNC] = LAYOUT_split_3x6_3_ex2(
         //,-----------------------------------------------------.                      ,-----------------------------------------------------.
-            KC_TRNS, KC_F1, KC_F2, KC_F3,  KC_F4, KC_F5, KC_TRNS,  KC_TRNS,   KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11,
+            KC_TRNS, KC_F1, KC_F2, KC_F3,  KC_F4, KC_F5,             MO(_SWITCHER),  MO(_MEDIA),   KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11,
         //|--------+--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------+--------|
-            KC_TRNS, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10,  KC_TRNS,  KC_TRNS,   KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_F12,
+            KC_TRNS, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10,            KC_TRNS,  KC_TRNS,   KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,  KC_F12,
         //|--------+--------+--------+--------+--------+--------|                      |--------+--------+--------+--------+--------+--------|
             KC_TRNS, KC_F11, KC_F12, KC_TRNS, KC_TRNS, KC_TRNS,                       KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,
         //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
@@ -482,6 +482,29 @@ void leader_end_user(void) {
 
     if (leader_sequence_one_key(KC_N)) {
         send_spanish_accent(_N);
+    }
+
+    if (leader_sequence_one_key(KC_TAB)) {
+        if (operativeSystem == OS_MAC) {
+            register_code(KC_LSFT);
+            register_code(KC_LALT);
+            tap_code(KC_8);
+            unregister_code(KC_LALT);
+            unregister_code(KC_LSFT);
+        } else if (operativeSystem == OS_LIN) {
+            register_code(KC_RALT);
+            register_code(KC_LSFT);
+            tap_code(KC_0);
+            unregister_code(KC_LSFT);
+            unregister_code(KC_RALT);
+        } else {
+            register_code(KC_RALT);
+            tap_code(KC_P0);
+            tap_code(KC_P1);
+            tap_code(KC_P7);
+            tap_code(KC_P6);
+            unregister_code(KC_RALT);
+        }
     }
 }
 
