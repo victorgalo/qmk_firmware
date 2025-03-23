@@ -215,7 +215,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_SWITCHER] = LAYOUT_split_3x6_3_ex2(
         //,------------------------------------------------------------------------.                           ,-----------------------------------------------------.
-            KC_TRNS,    TO(_BASE_WIN),    TO(_BASE_MAC),    TO(_GAMING),    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,      KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,   KC_TRNS,  KC_TRNS,
+            KC_TRNS,    TO(_BASE_WIN),    TO(_BASE_LIN),    TO(_BASE_MAC),    TO(_GAMING),    KC_TRNS,    KC_TRNS,    KC_TRNS,      KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,   KC_TRNS,  KC_TRNS,
         //|--------+--------+--------+--------+--------+--------|                                                           |--------+--------+--------+--------+--------+--------|
             KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,        KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,      KC_TRNS,    KC_TRNS,    KC_TRNS, KC_TRNS, KC_TRNS,
         //|--------+--------+--------+--------+--------+--------|                                                           |--------+--------+--------+--------+--------+--------|
@@ -424,7 +424,7 @@ void send_spanish_accent(uint8_t letter) {
             unregister_code(KC_LALT);
             tap_code(vowel_letter_key_map[letter]);
         }
-    } else if (operativeSystem = OS_LIN) {
+    } else if (operativeSystem == OS_LIN) {
         if (isCaps) {
             tap_code(KC_CAPS_LOCK);
             register_code(KC_RALT);
