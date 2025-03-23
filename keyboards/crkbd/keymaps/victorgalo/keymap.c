@@ -77,6 +77,7 @@ void rgb_matrix_set_color_hsv(uint8_t led, uint16_t hue, uint16_t sat, uint16_t 
 
 enum layers {
     _BASE_WIN,
+    _BASE_LIN,
     _BASE_MAC,
     _SWITCHER,
     _NAV,
@@ -86,6 +87,14 @@ enum layers {
     _GAMING,
     _MEDIA,
 };
+
+enum operating_system {
+    OS_WIN,
+    OS_MAC,
+    OS_LIN,
+};
+
+enum operating_system operativeSystem = OS_WIN;
 
 /*
 Combos
@@ -108,10 +117,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (pressed) {
         switch (keycode) {
             case TO(_BASE_MAC):
-                onMac = true;
+                operativeSystem = OS_MAC;
                 break;
             case TO(_BASE_WIN):
-                onMac = false;
+                operativeSystem = OS_WIN;
+                break;
+            case TO(_BASE_LIN):
+                operativeSystem = OS_WIN;
                 break;
             case QK_COPY:
                 if (onMac) {
@@ -166,6 +178,18 @@ void led_set_user(uint8_t usb_led) {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_BASE_WIN] = LAYOUT_split_3x6_3_ex2(
+        //,-----------------------------------------------------.                                   ,-----------------------------------------------------.
+            KC_TAB,     KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    MO(_SWITCHER),  MO(_MEDIA),      KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSPC,
+        //|--------+--------+--------+--------+--------+--------|                                   |--------+--------+--------+--------+--------+--------|
+            QK_LEAD,    SFT_A,    GUI_S,    CTL_D,    ALT_F,    KC_G,    KC_NO,    KC_NO,    KC_H,   ALT_J,    CTL_K,    GUI_L, SFT_SCLN, KC_QUOT,
+        //|--------+--------+--------+--------+--------+--------|                                   |--------+--------+--------+--------+--------+--------|
+            SC_LSPO,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                                    KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  SC_RSPC,
+        //|--------+--------+--------+--------+--------+--------+--------|                |--------+--------+--------+--------+--------+--------+--------|
+                                        MO(_FUNC),   MO(_SYM),  LT(_NUM, KC_ENT),                   KC_SPC,   LT(_NAV, KC_SPC), KC_RALT
+                                            //`--------------------------'                `--------------------------'
+    ),
+
+    [_BASE_LIN] = LAYOUT_split_3x6_3_ex2(
         //,-----------------------------------------------------.                                   ,-----------------------------------------------------.
             KC_TAB,     KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    MO(_SWITCHER),  MO(_MEDIA),      KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_BSPC,
         //|--------+--------+--------+--------+--------+--------|                                   |--------+--------+--------+--------+--------+--------|
@@ -384,7 +408,7 @@ void send_spanish_accent(uint8_t letter) {
 
     isCaps = isCapsLockOn ? true : false;
 
-    if (onMac) {
+    if (operativeSystem == OS_MAC) {
         if (isCaps) {
             tap_code(KC_CAPS_LOCK);
             register_code(KC_LALT);
@@ -399,6 +423,18 @@ void send_spanish_accent(uint8_t letter) {
             tap_letter_key(letter);
             unregister_code(KC_LALT);
             tap_code(vowel_letter_key_map[letter]);
+        }
+    } else if (operativeSystem = OS_LIN) {
+        if (isCaps) {
+            tap_code(KC_CAPS_LOCK);
+            register_code(KC_RALT);
+            tap_code(vowel_letter_key_map[letter]);
+            unregister_code(KC_RALT);
+            tap_code(KC_CAPS);
+        } else {
+            register_code(KC_LALT);
+            tap_code(vowel_letter_key_map[letter]);
+            unregister_code(KC_LALT);
         }
     } else {
         decimal_unicode_in = isCaps ? spanish_accent_decimal_unicodes[letter][1] : spanish_accent_decimal_unicodes[letter][0];
