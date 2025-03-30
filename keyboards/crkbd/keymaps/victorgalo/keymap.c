@@ -27,6 +27,7 @@ bool isCapsLockOn;
 bool dash_mode = false;
 uint16_t last_keycode = KC_NO;
 uint16_t last_separator_keycode = KC_NO;
+static bool last_key_was_space = false;
 uint16_t last_space_time = 0;
 
 enum custom_keycodes {
@@ -468,22 +469,27 @@ void leader_end_user(void) {
         send_spanish_accent(_E);
     }
 
+    /* íÍ -> LDR > I */
     if (leader_sequence_one_key(KC_I)) {
         send_spanish_accent(_I);
     }
 
+    /* óÓ -> LDR > O */
     if (leader_sequence_one_key(KC_O)) {
         send_spanish_accent(_O);
     }
 
+    /* úÚ -> LDR > U */
     if (leader_sequence_one_key(KC_U)) {
         send_spanish_accent(_U);
     }
 
+    /* ñÑ -> LDR > N */
     if (leader_sequence_one_key(KC_N)) {
         send_spanish_accent(_N);
     }
 
+    /* ° -> LDR > TAB */
     if (leader_sequence_one_key(KC_TAB)) {
         if (operativeSystem == OS_MAC) {
             register_code(KC_LSFT);
@@ -512,11 +518,13 @@ bool caps_word_press_user(uint16_t keycode) {
   switch (keycode) {
     // Keycodes that continue Caps Word, with shift applied.
     case KC_A ... KC_Z:
+        if (last_key_was_space) {
+            tap_code(KC_BSPC);
 
-    // case KC_MINS:
-    //   // Apply shift to the next key.
-    //   add_weak_mods(MOD_BIT(KC_LSFT));
-    //   return true;
+        }
+        last_key_was_space = false; // Reset space tracking
+        add_weak_mods(MOD_BIT(KC_LSFT));
+        return true;
 
     // Keycodes that continue Caps Word, without shifting.
     case KC_MINS:
@@ -525,10 +533,38 @@ bool caps_word_press_user(uint16_t keycode) {
     case KC_DEL:
     case KC_UNDS:
     case SC_LSPO:
-      return true;
+        if (keycode == KC_MINS || keycode == KC_UNDS) {
+            last_separator_keycode = keycode;
+        }
+        if (last_key_was_space) {
+            tap_code(KC_BSPC);
+            last_key_was_space = false;
+            return true;
+        }
+        last_key_was_space = false; // Reset space tracking
 
+        return true;
+    case KC_SPC:
+        if (last_separator_keycode != KC_NO) {
+            if (!last_key_was_space) {
+                tap_code(last_separator_keycode);
+                last_key_was_space = true;
+                return true;
+            }
+        }
+
+        if (last_key_was_space) {
+            tap_code(KC_BSPC);
+            tap_code(KC_BSPC);
+            last_key_was_space = false;
+            return false;
+        }
+        last_key_was_space = false;
+        return false;
     default:
-      return false;  // Deactivate Caps Word.
+        last_separator_keycode = KC_NO;
+        last_key_was_space = false;
+        return false;
   }
 }
 
