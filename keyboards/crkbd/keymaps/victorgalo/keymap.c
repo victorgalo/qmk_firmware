@@ -512,6 +512,21 @@ void leader_end_user(void) {
             unregister_code(KC_RALT);
         }
     }
+
+     /* single quote + space -> LDR > single quote */
+     if (leader_sequence_one_key(KC_QUOT)) {
+        tap_code(KC_QUOT); // Type the single quote
+        tap_code(KC_SPC);  // Type a space after the single quote
+    }
+
+    /* single quote + space -> LDR > backspace */
+    if (leader_sequence_one_key(KC_BSPC)) {
+        register_code(KC_LSFT);
+        tap_code(KC_QUOT); // Type the single quote
+        unregister_code(KC_LSFT);
+        tap_code(KC_SPC);  // Type a space after the single quote
+    }
+
 }
 
 bool caps_word_press_user(uint16_t keycode) {
